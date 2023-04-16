@@ -8,20 +8,23 @@ use App\Map;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
 use App\User;
+use App\Http\Requests\CreateDate;
 
 class UsersController extends Controller
 {
-    public function index (Request $request){
+    public function index (CreateDate $request){
 
         $user = new User;
         $all = $user->all()->toArray();
 
-        $maps = Map::all();
-        //dd($all);
+        $sort = $request->sort;
+        $maps = Map::paginate(5);
+        //dd($maps);
 
         return view ('admin_top',[
             'users' => $all,
             'maps'=>$maps,
+            'sort' => $sort,
         ]);
 
     }
@@ -34,7 +37,7 @@ class UsersController extends Controller
             'result'=>$user,
         ]);
     }
-    public function update(Request $request, User $user){
+    public function update(CreateDate $request, User $user){
         
 
         $user->name = $request->name;

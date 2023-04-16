@@ -2,6 +2,7 @@
 
 
 
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -45,37 +46,43 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 無限スクロール -->
+            
                 <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <div class='text-center'>お店</div>
-                    </div>
-                    <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class='text-center'>お店</div>
+                        </div>
                         <div class="card-body">
-                            <table class='table'>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>お店の名前</th>
-                                        <th>最寄り駅</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($maps as $map)
-                                    <tr>
-                                        <th scope='col'><a href="{{ route('maps.edit',$map['id']) }}">{{ $map['id'] }}</a></th>
-                                        <th scope='col'>{{ $map['shopname'] }}</th>
-                                        <th>{{ $map['address'] }}</th>
-                                        
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="card-body">
+                                <div id="data-container">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>お店の名前</th>
+                                                <th>最寄り駅</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($maps as $map)
+                                            <tr>
+                                                <th scope='col'><a href="{{ route('maps.edit',$map['id']) }}">{{ $map['id'] }}</a></th>
+                                                <th scope='col'>{{ $map['shopname'] }}</th>
+                                                <th>{{ $map['address'] }}</th>
+                                                
+                                            </tr>
+                                            @endforeach
+                                            {{ $maps->links() }}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </main>
     </div>
     <div class='row justify-content-around mt-3'>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Map;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateDate;
 
 class MapController extends Controller
 {
@@ -38,7 +39,7 @@ class MapController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateDate $request)
     {
         //mapの新規作成
         $map = new Map;
@@ -82,7 +83,7 @@ class MapController extends Controller
      * @param  \App\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Map $map)
+    public function update(CreateDate $request, Map $map)
     {
         $map->shopname = $request->shopname;
         $map->address = $request->address;
