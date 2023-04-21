@@ -6,7 +6,7 @@ use App\Grade;
 use App\Map;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\CreateDate;
+use App\Http\Requests\CreateData;
 
 class GradeController extends Controller
 {
@@ -50,7 +50,7 @@ class GradeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Createdate $request)
+    public function store(CreateData $request)
     {
         $grade = new Grade;
         $grade->date = $request->date;
@@ -108,7 +108,7 @@ class GradeController extends Controller
      * @param  \App\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function update(Createdate $request, Grade $grade)
+    public function update(CreateData $request, Grade $grade)
     {
         $grade->date =$request->date;
         $grade->top =$request->top;

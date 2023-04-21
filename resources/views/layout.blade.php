@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,7 +26,7 @@
             <a href="{{ url('admin_top') }}">管理者ページはこちら</a>
             @endif
 
-            <span class="my-navbar-item">{{ Auth::user()->name }}</span>
+            <a href="{{ route('users.useredit',Auth::user()->id) }}"><span class="my-navbar-item">{{ Auth::user()->name }}</span></a>
             /
             <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
             <form id="logout-form" action="{{ route('logout') }}" method="post" style=": none;">
@@ -44,7 +45,7 @@
         @endif
     </div>
     <div class='panel-body'>
-    @if($errors->any())
+        @if($errors->any())
         <div class='alert alert-danger'>
             <ul>
                 @foreach($errors->all() as $message)
@@ -52,6 +53,6 @@
                 @endforeach
             </ul>
         </div>
-    @endif
-</div>
+        @endif
+    </div>
 </head>

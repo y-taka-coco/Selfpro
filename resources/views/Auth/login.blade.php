@@ -6,7 +6,6 @@
         <nav class="card mt-5">
           <div class="card-header">ログイン</div>
           <div class="card-body">
-            
             <form action="{{ route('login') }}" method="POST">
               @csrf
               <div class="form-group">

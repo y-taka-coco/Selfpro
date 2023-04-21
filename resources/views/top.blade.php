@@ -2,7 +2,7 @@
 
 
 
-<body>
+<body class="bg-primary">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -12,6 +12,17 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            </div>
+            <div >
+                @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))
+                    <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.jpeg'))
+                    <img src="/storage/post_img/{{ $img }}.jpeg" style="height:100px;width:100px;">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.png'))
+                    <img src="/storage/post_img/{{ $img }}.png" style="height:100px;width:100px;">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.gif'))
+                    <img src="/storage/post_img/{{ $img }}.gif" style="height:100px;width:100px;">
+                @endif
             </div>
         </nav>
         <main class="py-4">
@@ -54,31 +65,19 @@
                                 <table class='table'>
                                     <thead>
                                         <tr>
-                                            <th>日付</th>
                                             <th>1着</th>
                                             <th>2着</th>
                                             <th>3着</th>
                                             <th>平均着順</th>
-                                            <th>お店</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($grades as $grade)
                                         <tr>
-                                            <th>{{ $grade['date'] }}</th>
-                                            <th scope='col'>{{ $grade['top'] }}回</th>
-                                            <th scope='col'>{{ $grade['second'] }}回</th>
-                                            <th scope='col'>{{ $grade['third'] }}回</th>
+                                            <th scope='col'>{{ $ityaku }}回</th>
+                                            <th scope='col'>{{ $nityaku }}回</th>
+                                            <th scope='col'>{{ $santyaku }}回</th>
                                             <th>{{ $avg }}</th>
-                                            @foreach($maps as $map)
-                                                @if($map['id'] == $grade['map_id'])
-                                                    <th>{{ $map['shopname'] }}</th>
-                                                @else
-                                                    
-                                                @endif
-                                            @endforeach
                                         </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -95,27 +94,19 @@
                             <table class='table'>
                                 <thead>
                                     <tr>
-                                        <th>+</th>
-                                        <th>－</th>
-                                        <th>計</th>
-                                        <th>お店</th>
+                                        <th>収支合計</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($grades as $grade)
                                     <tr>
-                                        <th scope='col'>{{ $grade['income'] }}</th>
-                                        <th scope='col'>{{ $grade['spending'] }}</th>
-                                        <th></th>
-                                        @foreach($maps as $map)
-                                                @if($map['id'] == $grade['map_id'])
-                                                    <th>{{ $map['shopname'] }}</th>
-                                                @else
-                                                    
-                                                @endif
-                                        @endforeach
+                                        @if($kati==$make)
+                                            <th>±０</th>
+                                        @elseif($kati==0)
+                                            <th>-{{$make}}</th>
+                                        @elseif($make==0)
+                                            <th>+{{$kati}}</th>
+                                        @endif
                                     </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

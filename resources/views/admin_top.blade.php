@@ -66,7 +66,7 @@
                                                 
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="post-list">
                                             @foreach($maps as $map)
                                             <tr>
                                                 <th scope='col'><a href="{{ route('maps.edit',$map['id']) }}">{{ $map['id'] }}</a></th>
@@ -75,6 +75,8 @@
                                                 
                                             </tr>
                                             @endforeach
+                                            <!-- 無限スクロール -->
+                                            
                                             {{ $maps->links() }}
                                         </tbody>
                                     </table>
@@ -86,9 +88,7 @@
         </main>
     </div>
     <div class='row justify-content-around mt-3'>
-            <a href="">
-                <button type='button' class='btn btn-primary'>ユーザーの編集</button>
-            </a>
+            <div></div>
             <a href="{{ route('maps.create') }}">
                 <button type='button' class='btn btn-secondary'>お店の登録</button>
             </a>
@@ -98,6 +98,8 @@
 
 
 
-
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{ asset('/js/mugen.js') }}"></script>
 </body>
 </html>

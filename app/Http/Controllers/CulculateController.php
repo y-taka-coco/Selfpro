@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Grade;
 use App\Map;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\CreateDate;
+use App\Http\Requests\CreateData;
 
 class CulculateController extends Controller
 {
@@ -48,7 +48,7 @@ class CulculateController extends Controller
         ]);
     }
 
-    public function update(Createdate $request, Int $id)
+    public function update(CreateData $request, Int $id)
     {
         $instance = new Grade;
         $record = $instance->find($id);

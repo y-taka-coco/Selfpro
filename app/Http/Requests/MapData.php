@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateData extends FormRequest
+class MapData extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,20 +24,11 @@ class CreateData extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email',
-            'password'=>'string|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
-            'name'=>'required|string',
-            'password_confirmation'=>'string|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
+            
 
             'shopname'=>'required|string',
             'address'=>'required|string',
             
-            'date'=>'date',
-            'income'=>'integer',
-            'spending'=>'integer',
-            'top'=>'integer',
-            'second'=>'integer',
-            'third'=>'integer',
             
         ];
     }

@@ -34,6 +34,9 @@ Route::get('/', [HomeController::class,'index']);
 Route::resource('grades', 'GradeController');
 Route::resource('maps', 'MapController');
 
+Route::get('users/{user}/image',[UsersController::class,'useredit'])->name('users.useredit');
+Route::post('users/{user}/image',[UsersController::class,'userupdate'])->name('users.userupdate');
+
 
 Route::get('culculate/create', [CulculateController::class,'create'])->name('culculate.create');
 Route::get('culculate',[CulculateController::class,'index'])->name('culculate.index');
