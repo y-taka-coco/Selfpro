@@ -100,5 +100,7 @@ class MapController extends Controller
     public function destroy(Map $map)
     {
         //
+        $map->delete();
+        return redirect('/admin_top');
     }
 }

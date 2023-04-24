@@ -1,10 +1,10 @@
 @extends('layout')
 <body class="bg-dark">
-  
+
 <div class="container">
     <div class="row justify-content-center">
       <div class="col col-md-offset-3 col-md-6">
-        <nav class="card mt-5">
+        <nav class="card text-white bg-primary mb-3">
           <div class="card-header">ログイン</div>
           <div class="card-body">
             <form action="{{ route('login') }}" method="POST">
@@ -18,7 +18,7 @@
                 <input type="password" class="form-control" id="password" name="password" />
               </div>
               <div class="text-right">
-                <button type="submit" class="btn btn-primary">送信</button>
+                <button type="submit" class="btn btn-light">送信</button>
               </div>
             </form>
           </div>

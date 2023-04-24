@@ -7,7 +7,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    MSS（麻雀成績収支）
+                    <h1>MSS（麻雀成績収支）</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
