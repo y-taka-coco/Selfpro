@@ -19,7 +19,7 @@ class UsersController extends Controller
 
         $sort = $request->sort;
         $maps = Map::paginate(15);
-        
+
         //dd($maps);
 
         return view ('admin_top',[

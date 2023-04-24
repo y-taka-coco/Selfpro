@@ -18,8 +18,10 @@ use App\Http\Controllers\UsersController;
 
 Route::group(['middleware'=>['can:admin']],function(){
 Route::get('admin_top', [UsersController::class,'index']);
+
 Route::get('users/{user}/edit',[UsersController::class,'edit'])->name('users.edit');
 Route::post('users/{user}/edit',[UsersController::class,'update'])->name('users.update');
+Route::post('admin_top', [HomeController::class,'ajaxroute'])->name('ajaxpost');
 });
 
 

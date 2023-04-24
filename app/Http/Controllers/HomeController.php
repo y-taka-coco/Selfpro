@@ -118,25 +118,16 @@ class HomeController extends Controller
             // 'exa'=>$serchdate,
         ]);
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     }
+    // public function mapdata(){
+    //     $maps = Map::paginate(15);
+    //     return view('admin_top',['maps'=>$maps]);
+    // }
+    public function ajaxroute(){
+        $maps = Map::paginate(15)->toArray();
+        //var_dump($maps);
+        //dd($maps);
+        return response()->json(['maps' => $maps]);
+    }
+
 }

@@ -1,5 +1,6 @@
 @extends('layout')
-<body>
+<body class="bg-dark">
+  
 <div class="container">
     <div class="row justify-content-center">
       <div class="col col-md-offset-3 col-md-6">

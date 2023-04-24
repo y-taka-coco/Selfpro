@@ -1,5 +1,6 @@
 @extends('layout')
 
+<body class="bg-dark">
 <main class="py-4">
     <div class="row justify-content-around">
         <div class="col-md-4">
@@ -9,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
-                        <table class='table'>
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>日付(クリックで編集)</th>

@@ -1,6 +1,7 @@
 @extends('layout')
 
 
+<body class="bg-dark">
 
 <div class="col-md-5 mx-auto">
             <div class="card">

@@ -2,12 +2,12 @@
 
 
 
-<body class="bg-primary">
+<body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    MSM（仮）
+                    MSS（麻雀成績収支）
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -15,13 +15,13 @@
             </div>
             <div >
                 @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))
-                    <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;">
+                    <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;border-radius:50%;">
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.jpeg'))
-                    <img src="/storage/post_img/{{ $img }}.jpeg" style="height:100px;width:100px;">
+                    <img src="/storage/post_img/{{ $img }}.jpeg" style="height:100px;width:100px;border-radius:50%;">
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.png'))
-                    <img src="/storage/post_img/{{ $img }}.png" style="height:100px;width:100px;">
+                    <img src="/storage/post_img/{{ $img }}.png" style="height:100px;width:100px;border-radius:50%;">
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.gif'))
-                    <img src="/storage/post_img/{{ $img }}.gif" style="height:100px;width:100px;">
+                    <img src="/storage/post_img/{{ $img }}.gif" style="height:100px;width:100px;border-radius:50%;">
                 @endif
             </div>
         </nav>
@@ -94,17 +94,17 @@
                             <table class='table'>
                                 <thead>
                                     <tr>
-                                        <th>収支合計</th>
+                                        <th class='text-center'>収支合計</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         @if($kati==$make)
-                                            <th>±０</th>
+                                            <th class='text-center '>±０</th>
                                         @elseif($kati==0)
-                                            <th>-{{$make}}</th>
+                                            <th class='text-center text-danger'>-{{$make}}</th>
                                         @elseif($make==0)
-                                            <th>+{{$kati}}</th>
+                                            <th class='text-center text-primary'>+{{$kati}}</th>
                                         @endif
                                     </tr>
                                 </tbody>

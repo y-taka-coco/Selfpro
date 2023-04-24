@@ -3,7 +3,7 @@
 
 
 
-<body>
+<body class="bg-dark">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-body">
                             <div class="card-body">
-                                <table class='table'>
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -32,7 +32,7 @@
                                             <th>メールアドレス</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="table-striped">
                                         @foreach($users as $user)
                                         <tr>
                                             <th scope='col'><a href="{{ route('users.edit',$user['id']) }}">{{ $user['id'] }}</a></th>
@@ -44,6 +44,11 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                    <div class='row justify-content-around mt-3'>
+                        <a href="{{ route('maps.create') }}">
+                            <button type='button' class='btn btn-secondary'>お店の登録</button>
+                        </a>   
                     </div>
                 </div>
 
@@ -57,7 +62,7 @@
                         <div class="card-body">
                             <div class="card-body">
                                 <div id="data-container">
-                                    <table class='table'>
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -72,7 +77,6 @@
                                                 <th scope='col'><a href="{{ route('maps.edit',$map['id']) }}">{{ $map['id'] }}</a></th>
                                                 <th scope='col'>{{ $map['shopname'] }}</th>
                                                 <th>{{ $map['address'] }}</th>
-                                                
                                             </tr>
                                             @endforeach
                                             <!-- 無限スクロール -->
@@ -84,21 +88,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class='row justify-content-around mt-3'>
+                        <button type='button' class='btn btn-secondary more'>more</button>
+                    </div>
                 </div>
         </main>
     </div>
-    <div class='row justify-content-around mt-3'>
-            <div></div>
-            <a href="{{ route('maps.create') }}">
-                <button type='button' class='btn btn-secondary'>お店の登録</button>
-            </a>
-            
-    </div>
+
+    
 
 
 
 
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="{{ asset('/js/mugen.js') }}"></script>
 </body>
