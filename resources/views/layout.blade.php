@@ -26,7 +26,7 @@
             <a href="{{ url('admin_top') }}">管理者ページはこちら</a>
             @endif
 
-            <a href="{{ route('users.useredit',Auth::user()->id) }}"><span class="my-navbar-item">{{ Auth::user()->name }}</span></a>
+            <a href="{{ route('users.useredit',Auth::user()->id) }}"><span class="my-navbar-item">個人設定</span></a>
             /
             <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
             <form id="logout-form" action="{{ route('logout') }}" method="post" style=": none;">

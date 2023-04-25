@@ -26,34 +26,7 @@
             </div>
         </nav>
         <main class="py-4">
-        <form action="{{ url('/') }}" method="get">
-            <div class="row justify-content-around">
-                
-                                    
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">検索フォーム</div>
-                            <div class="card-body">
-                                <div class="card-body">
-                                    
-                                    <!-- 検索フォーム -->
-                                    <form action="" method="GET">
-                                        <input type='date' class='form-control' name='date' id='date'value="{{ old('date') }}"/>
-                                        <select name='map_id' class='form-control'>
-                                            <option value="" hidden></option> 
-                                                @foreach($maps as $map)
-                                                    <option value="{{ $map['id']}}" selected>{{ $map['shopname'] }}</option>
-                                                @endforeach  
-                                            </select>
-                                        <button type="submit">検索</button>
-                                    </form>
-                                    <!-- 検索フォーム -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </form>
+        
             <div class="row justify-content-around">
                 <div class="col-md-4">
                     <div class="card">
@@ -133,6 +106,56 @@
     </div>
 
 
+    <form action="{{ url('/') }}" method="get">
+            <div class="row justify-content-around">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">検索フォーム</div>
+                            <div class="card-body">
+                                <div class="card-body">
+                                    
+                                    <!-- 検索フォーム -->
+                                    <form action="" method="GET">
+                                        <input type='date' class='form-control' name='date' id='date'value="{{ old('date') }}"/>
+                                        <select name='map_id' class='form-control'>
+                                            <option value="" hidden></option> 
+                                                @foreach($maps as $map)
+                                                    <option value="{{ $map['id']}}" selected>{{ $map['shopname'] }}</option>
+                                                @endforeach  
+                                            </select>
+                                        <button type="submit" class="kensakubtn">検索</button>
+                                    </form>
+                                    <!-- 検索結果フォーム -->
+                                    <table class='table kensaku'>
+                                    <thead>
+                                        <tr>
+                                            <th>1着</th>
+                                            <th>2着</th>
+                                            <th>3着</th>
+                                            <th>勝ち額</th>
+                                            <th>負け額</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($grades as $grade)
+                                        <tr>
+                                        
+                                            <th>{{ $grade['top'] }}回</th>
+                                            <th>{{ $grade['second'] }}回</th>
+                                            <th>{{ $grade['third'] }}回</th>
+                                            <th>{{ $grade['income'] }}</th>
+                                            <th>{{ $grade['spending'] }}</th>
+                                        
+                                        </tr>
+                                     @endforeach
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </form>
 
 
 

@@ -12,7 +12,7 @@ class CulculateController extends Controller
 {
     public function create() {
         $maps = Map::all();
-        return view('grade_new',[
+        return view('culculate_new',[
             'maps'=>$maps,
         ]);
     }

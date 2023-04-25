@@ -24,13 +24,6 @@ class CreateData extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email',
-            'password'=>'string|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
-            'name'=>'required|string',
-            'password_confirmation'=>'string|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
-
-            'shopname'=>'required|string',
-            'address'=>'required|string',
             
             'date'=>'date',
             'income'=>'integer',

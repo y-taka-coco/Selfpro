@@ -13,9 +13,9 @@
                             @csrf
                             <label for='date' class='mt-2'>日付</label>
                                 <input type='date' class='form-control' name='date' id='date'value="{{ $result->date }}"/>
-                            <label for='amount'>勝ち額</label>
+                            <label for='amount'>勝ち額(半角数字で入力してください)</label>
                                 <input type='text' class='form-control' name='income' value="{{ $result->income }}"/>
-                             <label for='amount'>負け額</label>
+                             <label for='amount'>負け額(半角数字で入力してください)</label>
                                 <input type='text' class='form-control' name='spending' value="{{ $result->spending }}"/>
                                 <label for='amount'>お店</label>
                                 <select name='map_id' class='form-control'>

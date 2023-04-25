@@ -1,4 +1,5 @@
 $(function(){
+
         $(".pagination").hide();
         var page = 2;
         $(".more").on("click",function(){
