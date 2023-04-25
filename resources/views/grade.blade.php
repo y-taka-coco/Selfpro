@@ -5,10 +5,11 @@
 <main class="py-4">
     <div class="row justify-content-around">
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
+            
+                <div class="card-header bg-light">
                     <div class='text-center'>今月の成績表示</div>
                 </div>
+                <div class="card">
                 <div class="card-body">
                     <div class="card-body">
                         <table class="table table-striped">
@@ -48,7 +49,7 @@
                                     </th>
                                 </tr>
                                 @endforeach
-                                <a href="{{ url('/')}}">トップに戻る<br></a>
+                            
                             </tbody>
                         </table>
                     </div>

@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
-                        <form action="{{ route('grades.store') }}" method="post">
+                        <form action="{{ route('culculate.create') }}" method="post">
                             @csrf
                             <label for='date' class='mt-2'>日付</label>
                                 <input type='date' class='form-control' name='date' id='date'value="{{ old('date') }}"/>
@@ -21,7 +21,7 @@
                                 <select name='map_id' class='form-control'>
                                     <option value="" hidden></option> 
                                         @foreach($maps as $map)
-                                            <option value="{{ $map['id']}}" selected>{{ $map['shopname'] }}</option>
+                                            <option value="{{ $map['id']}}">{{ $map['shopname'] }}</option>
                                         @endforeach 
                                 </select>
                                 <div class='row justify-content-center'>

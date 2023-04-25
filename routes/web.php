@@ -22,6 +22,7 @@ Route::get('admin_top', [UsersController::class,'index']);
 Route::get('users/{user}/edit',[UsersController::class,'edit'])->name('users.edit');
 Route::post('users/{user}/edit',[UsersController::class,'update'])->name('users.update');
 Route::post('admin_top', [HomeController::class,'ajaxroute'])->name('ajaxpost');
+Route::post('users/{user}',[UsersController::class,'destroy'])->name('users.delete');
 });
 
 
@@ -41,6 +42,7 @@ Route::post('users/{user}/image',[UsersController::class,'userupdate'])->name('u
 
 
 Route::get('culculate/create', [CulculateController::class,'create'])->name('culculate.create');
+Route::post('culculate/create', [CulculateController::class,'newcreate']);
 Route::get('culculate',[CulculateController::class,'index'])->name('culculate.index');
 Route::get('culculate/{culculate}',[CulculateController::class,'show'])->name('culculate.show');
 Route::get('culculate/{culculate}/edit',[CulculateController::class,'edit'])->name('culculate.edit');

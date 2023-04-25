@@ -4,15 +4,29 @@
 
 <body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <h1>MSS（麻雀成績収支）</h1>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm navbar-fixed-top">
+        @if(Auth::check())
+            @if(Auth::user()->role==0)
+            <a href="{{ url('admin_top') }}">管理者ページはこちら</a>
+            @endif
+
+            <a href="{{ route('users.useredit',Auth::user()->id) }}"><span class="my-navbar-item">個人設定</span></a>
+            /
+            <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="post" style=": none;">
+                @csrf
+            </form>
+            <script>
+                document.getElementById('logout').addEventListener('click',function(event) {
+                event.preventDefault();
+                document.getElementById('logout-form').submit();
+                });
+            </script>
+        @else
+            <a class="my-navbar-item" href="{{ route('login') }}">ログイン</a>
+            /
+            <a class="may-navbar-item" href="{{ route('register') }}">会員登録</a>
+        @endif
             <div >
                 @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))
                     <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;border-radius:50%;">
@@ -28,28 +42,41 @@
         <main class="py-4">
         
             <div class="row justify-content-around">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class='text-center'>成績表示</div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-body">
-                                <table class='table'>
-                                    <thead>
+                <div class="col-md-6">
+                    <div class="card border-secondary">
+                        
+                        <div class="text-secondary">
+                            <div class="card border-secondary">
+                                <table class='table table-hover'>
+                                    <thead class="thead-light text-center">
                                         <tr>
-                                            <th>1着</th>
-                                            <th>2着</th>
-                                            <th>3着</th>
-                                            <th>平均着順</th>
+                                            <th></th>
+                                            <th>総合成績</th>
+                                            <th></th>
+                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class='text-center'>
                                         <tr>
-                                            <th scope='col'>{{ $ityaku }}回</th>
-                                            <th scope='col'>{{ $nityaku }}回</th>
-                                            <th scope='col'>{{ $santyaku }}回</th>
-                                            <th>{{ $avg }}</th>
+                                            <th scope='col'>1着</th>
+                                            <td>{{$top}}%</td>
+                                            <td>{{$ityaku}}/{{$sokai}}回</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope='col'>2着</th>
+                                            <td>{{$sec}}%</td>
+                                            <td>{{$nityaku}}/{{$sokai}}回</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope='col'>3着</th>
+                                            <td>{{$thi}}%</td>
+                                            <td>{{$santyaku}}/{{$sokai}}回</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope='col'>平均着順</th>
+                                            <td>{{$avg}}</td>
+                                            <td></td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>
@@ -59,49 +86,52 @@
                 </div>
                 <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">
-                        <div class='text-center'>総合収支</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body">
-                            <table class='table'>
-                                <thead>
+                    
+                       
+                            <table class='table table-hover'>
+                                <thead class='thead-light'>
                                     <tr>
-                                        <th class='text-center'>収支合計</th>
+                                        <th class='text-center'>総合収支</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        @if($kati==$make)
-                                            <th class='text-center '>±０</th>
-                                        @elseif($kati==0)
-                                            <th class='text-center text-danger'>-{{$make}}</th>
-                                        @elseif($make==0)
-                                            <th class='text-center text-primary'>+{{$kati}}</th>
+                                        <th class='text-center text-primary'>+{{$kati}}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class='text-center text-danger'>-{{$make}}</th>
+                                    </tr>
+                                    <tr>
+                                        @if($kati > $make)
+                                            <th class='text-center'>+{{$kati}}</th>
+                                        @elseif($kati < $make)
+                                            <th class='text-center'>-{{$make}}</th>
+                                        @elseif($kati == $make)
+                                            <th class='text-center'>±0</th>
                                         @endif
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
+                        
+                   
                 </div>
             </div>
         </main>
     </div>
     <div class='row justify-content-around mt-3'>
             <a href="{{ route('grades.index') }}">
-                <button type='button' class='btn btn-primary'>今月の成績</button>
+                <button type='button' class='btn btn-outline-primary'>今月の成績</button>
             </a>
             <a href="{{ route('culculate.index') }}">
-                <button type='button' class='btn btn-secondary'>今月の収支</button>
+                <button type='button' class='btn btn-outline-secondary'>今月の収支</button>
             </a>
     </div>
     <div class='row justify-content-around mt-3'>
             <a href="{{ route('grades.create') }}">
-                <button type='button' class='btn btn-primary'>成績作成</button>
+                <button type='button' class='btn btn-outline-primary'>成績作成</button>
             </a>
             <a href="{{ route('culculate.create') }}">
-                <button type='button' class='btn btn-secondary'>支出作成</button>
+                <button type='button' class='btn btn-outline-secondary'>収支作成</button>
             </a>
     </div>
 
@@ -110,11 +140,12 @@
             <div class="row justify-content-around">
                     <div class="col-md-4">
                         <div class="card">
-                            <div class="card-header">検索フォーム</div>
+                            <div class="card-header text-center">検索フォーム</div>
                             <div class="card-body">
                                 <div class="card-body">
                                     
                                     <!-- 検索フォーム -->
+                                    <nav class="navbar navbar-light bg-light">
                                     <form action="" method="GET">
                                         <input type='date' class='form-control' name='date' id='date'value="{{ old('date') }}"/>
                                         <select name='map_id' class='form-control'>
@@ -123,8 +154,9 @@
                                                     <option value="{{ $map['id']}}" selected>{{ $map['shopname'] }}</option>
                                                 @endforeach  
                                             </select>
-                                        <button type="submit" class="kensakubtn">検索</button>
+                                        <button type="submit" class="kensakubtn btn btn-outline-success">検索</button>
                                     </form>
+                                    </nav>
                                     <!-- 検索結果フォーム -->
                                     <table class='table kensaku'>
                                     <thead>

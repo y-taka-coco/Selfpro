@@ -20,8 +20,6 @@ class UsersController extends Controller
         $sort = $request->sort;
         $maps = Map::paginate(15);
 
-        //dd($maps);
-
         return view ('admin_top',[
             'users' => $all,
             'maps'=>$maps,
@@ -30,14 +28,23 @@ class UsersController extends Controller
 
     }
     
-    public function edit(User $user){
-        //dd($user);
-        $result = $user->find($user);
+    public function edit(Int $id){
+        $user = new User;
+        $result = $user->find($id);
         return  view('admin_user_edit',[
-            'id' => $user['id'],
-            'result'=>$user,
+            'id' => $id,
+            'result'=>$result,
         ]);
     }
+    public function destroy(Int $id)
+    {
+        $instance = new User;
+        $record = $instance->find($id);
+        $record->delete();
+        return redirect('/admin_top');
+    }
+
+
     public function update(UserData $request, User $user){
         
 
@@ -59,13 +66,14 @@ class UsersController extends Controller
         return redirect('/');
     }
     public function useredit(User $user){
-        //dd($user);
         $result = $user->find($user);
         return  view('user_edit',[
             'id' => $user['id'],
             'result'=>$user,
         ]);
     }
+
+    
 
 
 

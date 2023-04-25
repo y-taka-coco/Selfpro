@@ -12,17 +12,30 @@ class CulculateController extends Controller
 {
     public function create() {
         $maps = Map::all();
+        $grade = Grade::all();
         return view('culculate_new',[
             'maps'=>$maps,
         ]);
+    }
+    public function newcreate(CreateData $request){
+        $grade = new Grade;
+        $grade->date = $request->date;
+        $grade->top = $request->top;
+        $grade->second = $request->second;
+        $grade->third = $request->third;
+        $grade->income =$request->income;
+        $grade->spending =$request->spending;
+        $grade->map_id =$request->map_id;
+        Auth::user()->grade()->save($grade);
+        //$grade->save();
+
+        return redirect('/culculate');
     }
 
     public function index() {
         $grade = new Grade;
         $all =Auth::user()->grade()->get();
         $maps = Map::all();
-        //dd($all);
-        //$top=$all["top"];   
         return view('culculate',[
             'culculates'=>$all,
             'maps'=>$maps,
@@ -39,7 +52,6 @@ class CulculateController extends Controller
         $grade = new Grade;
         $result = $grade->find($id);
         $maps = Map::all();
-        //dd($result);
         
         return  view('culculate_edit',[
             'id' => $id,
@@ -54,21 +66,18 @@ class CulculateController extends Controller
         $record = $instance->find($id);
 
         $record->date =$request->date;
-        // $record->top =$request->top;
-        // $record->second =$request->second;
-        // $record->third =$request->third;
         $record->map_id =$request->map_id;
         $record->income =$request->income;
         $record->spending =$request->spending;
-        //$record->save();
         Auth::user()->grade()->save($record);
+
+        
         return redirect('/culculate');
     }
 
     public function destroy(Int $id){
         $instance = new Grade;
         $record = $instance->find($id);
-        //dd($record);
         $record->delete();
         return redirect('/');
     }

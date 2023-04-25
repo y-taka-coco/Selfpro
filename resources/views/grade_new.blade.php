@@ -24,7 +24,7 @@
                                 <select name='map_id' class='form-control'>
                                     <option value="" hidden></option> 
                                         @foreach($maps as $map)
-                                            <option value="{{ $map['id']}}" selected>{{ $map['shopname'] }}</option>
+                                            <option value="{{ $map['id']}}">{{ $map['shopname'] }}</option>
                                         @endforeach 
                                 </select>
                             <div class='row justify-content-center'>

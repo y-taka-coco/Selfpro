@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- ログインログアウト -->
     <div class="my-navbar-control">
-        @if(Auth::check())
+    @if(Auth::check())
             @if(Auth::user()->role==0)
             <a href="{{ url('admin_top') }}">管理者ページはこちら</a>
             @endif
@@ -56,3 +56,5 @@
         @endif
     </div>
 </head>
+
+

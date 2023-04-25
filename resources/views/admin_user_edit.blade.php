@@ -15,10 +15,16 @@
                                 <input type='text' class='form-control' name='name' value="{{ $result->name }}"/>
                              <label for='amount'>メールアドレス</label>
                                 <input type='text' class='form-control' name='email' value="{{ $result->email }}"/>
-                                <div class='row justify-content-center'>
-                                <button type='submit' class='btn btn-primary w-25 mt-3'>登録</button>
-                            </div> 
+                                <div class='row justify-content-around'>
+                               
+                                    <button type='submit' class='btn btn-primary w-25 mt-3'>登録</button>
+                                    
+                                </div> 
                             <a href="{{ url('admin_top')}}">管理者トップに戻る<br></a>
+                        </form>
+                        <form action="{{ route('users.delete',$result['id']) }}" method="POST"> 
+                            @csrf
+                            <input type="submit" class="btn btn-danger mt-3" value="削除"/>
                         </form>
                     </div>
                 </div>
