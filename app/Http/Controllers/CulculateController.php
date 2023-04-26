@@ -13,8 +13,16 @@ class CulculateController extends Controller
     public function create() {
         $maps = Map::all();
         $grade = Grade::all();
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+
         return view('culculate_new',[
             'maps'=>$maps,
+            'img'=>$img,
         ]);
     }
     public function newcreate(CreateData $request){
@@ -36,9 +44,41 @@ class CulculateController extends Controller
         $grade = new Grade;
         $all =Auth::user()->grade()->get();
         $maps = Map::all();
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+
+                //総合収支
+                $syusi1 = 0;
+                $syusi2 = 0;
+                foreach($all as $syu){
+                 $syusi1 +=$syu['income'];//合計
+                 $syusi2 +=$syu['spending'];//合計
+                }
+                if($syusi1 > $syusi2){//in>sp
+                    $syusi3 = $syusi1-$syusi2;
+                    $syusi4 =0;
+                }elseif($syusi1 < $syusi2){//in<sp
+                    $syusi3 =0;
+                    $syusi4 = $syusi2-$syusi1;
+                }elseif($syusi1 == $syusi2){//in=sp
+                    $syusi3 =0;
+                    $syusi4 =0;
+                }
+        
+
         return view('culculate',[
             'culculates'=>$all,
             'maps'=>$maps,
+            'img'=>$img,
+            'katisum'=>$syusi1,
+            'makesum'=>$syusi2,
+            'kati'=>$syusi3,
+            'make'=>$syusi4,
+
         ]); 
     }
 
@@ -52,11 +92,19 @@ class CulculateController extends Controller
         $grade = new Grade;
         $result = $grade->find($id);
         $maps = Map::all();
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+
         
         return  view('culculate_edit',[
             'id' => $id,
             'result'=>$result,
             'maps'=>$maps,
+            'img'=>$img,
         ]);
     }
 

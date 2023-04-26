@@ -4,15 +4,15 @@
 
 <body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm navbar-fixed-top">
+        <!-- ヘッダー -->
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         @if(Auth::check())
             @if(Auth::user()->role==0)
-            <a href="{{ url('admin_top') }}">管理者ページはこちら</a>
+            <a href="{{ url('admin_top') }}" >管理者TOPページ</a>
             @endif
-
-            <a href="{{ route('users.useredit',Auth::user()->id) }}"><span class="my-navbar-item">個人設定</span></a>
-            /
-            <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
+            <a href="{{ url('/')}}"><span class="navbar-item">TOPページに戻る</span></a>
+            
+            <a href="#" id="logout" class="navbar-item">ログアウト</a>
             <form id="logout-form" action="{{ route('logout') }}" method="post" style=": none;">
                 @csrf
             </form>
@@ -24,10 +24,11 @@
             </script>
         @else
             <a class="my-navbar-item" href="{{ route('login') }}">ログイン</a>
-            /
+            
             <a class="may-navbar-item" href="{{ route('register') }}">会員登録</a>
         @endif
-            <div >
+            
+                <a href="{{ route('users.useredit',Auth::user()->id) }}">
                 @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))
                     <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;border-radius:50%;">
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.jpeg'))
@@ -37,8 +38,11 @@
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.gif'))
                     <img src="/storage/post_img/{{ $img }}.gif" style="height:100px;width:100px;border-radius:50%;">
                 @endif
-            </div>
+                </a>
+           
         </nav>
+        <!-- ヘッダーここまで -->
+
         <main class="py-4">
         
             <div class="row justify-content-around">
@@ -86,8 +90,6 @@
                 </div>
                 <div class="col-md-4">
                 <div class="card">
-                    
-                       
                             <table class='table table-hover'>
                                 <thead class='thead-light'>
                                     <tr>
@@ -119,12 +121,8 @@
         </main>
     </div>
     <div class='row justify-content-around mt-3'>
-            <a href="{{ route('grades.index') }}">
-                <button type='button' class='btn btn-outline-primary'>今月の成績</button>
-            </a>
-            <a href="{{ route('culculate.index') }}">
-                <button type='button' class='btn btn-outline-secondary'>今月の収支</button>
-            </a>
+            <a href="{{ route('grades.index') }}" class="badge badge-pill badge-success" style="vertical-align:center;font-size: 100%;padding: 1.25em 0.4em;" >今月の成績</a>
+            <a href="{{ route('culculate.index') }}" class="badge badge-pill badge-light" style="vertical-align:center;font-size: 100%;padding: 1.25em 0.4em;">今月の収支</button></a>
     </div>
     <div class='row justify-content-around mt-3'>
             <a href="{{ route('grades.create') }}">

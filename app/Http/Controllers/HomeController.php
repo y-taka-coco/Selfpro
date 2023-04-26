@@ -17,18 +17,17 @@ class HomeController extends Controller
         $all =Auth::user()->grade()->get();
         $maps = Map::all();
         $img =Auth::user()->grade()->first();
-
-        //もしログインユーザーの権限が管理者ならばリダイレクトする（admin_topに）
-        if(Auth::user()->role==0){
-            return redirect('/admin_top');
-        }
-
         if(!isset($img)){
             $img =0;
         }else{
             $img = $img['user_id'];
         }
 
+
+        //もしログインユーザーの権限が管理者ならばリダイレクトする（admin_topに）
+        if(Auth::user()->role==0){
+            return redirect('/admin_top');
+        }
         //総合収支
         $syusi1 = 0;
         $syusi2 = 0;
@@ -49,12 +48,11 @@ class HomeController extends Controller
 
         
         
-       //平均着順
+       //成績出す計算式
        $sum1 = 0;
        $sum2 = 0;
        $sum3 = 0;
        $sum4 = 0;
-       //dd($all);
 
        foreach($all as $avg){
         $sum1 +=$avg['top'];//topの総回数
@@ -125,8 +123,8 @@ class HomeController extends Controller
         return view('top',[
             'grades'=>$all,
             'maps'=>$maps,
-            'avg'=>$avg,
             'img'=>$img,
+            'avg'=>$avg,
             'ityaku'=>$sum1,
             'nityaku'=>$sum2,
             'santyaku'=>$sum3,

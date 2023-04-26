@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- ログインログアウト -->
-    <div class="my-navbar-control">
+    <div class="my-navbar-control" hidden>
     @if(Auth::check())
             @if(Auth::user()->role==0)
             <a href="{{ url('admin_top') }}">管理者ページはこちら</a>

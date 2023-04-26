@@ -25,9 +25,10 @@ $(function(){
                         for(var i=0; i<objco; i++){
                                 $("#post-list").append(
                                         `<tr>
-                                                <th scope="col"><a href="http://127.0.0.1:8000/maps/${data['maps']['data'][i]['id']}/edit">${data['maps']['data'][i]['id']} </a></th>
+                                                <th scope="col">${data['maps']['data'][i]['id']}</th>
                                                 <th>${data['maps']['data'][i]['shopname']}</th>
                                                 <th>${data['maps']['data'][i]['address']}</th>
+                                                <th scope="col"><a href="http://127.0.0.1:8000/maps/${data['maps']['data'][i]['id']}/edit" class="badge badge-pill badge-success"><h3>編集</h3></a></th>
                                         </tr>`
                                 );
                         }

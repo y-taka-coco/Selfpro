@@ -20,10 +20,18 @@ class UsersController extends Controller
         $sort = $request->sort;
         $maps = Map::paginate(15);
 
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+
         return view ('admin_top',[
             'users' => $all,
             'maps'=>$maps,
             'sort' => $sort,
+            'img'=>$img,
         ]);
 
     }
@@ -31,9 +39,17 @@ class UsersController extends Controller
     public function edit(Int $id){
         $user = new User;
         $result = $user->find($id);
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+
         return  view('admin_user_edit',[
             'id' => $id,
             'result'=>$result,
+            'img'=>$img,
         ]);
     }
     public function destroy(Int $id)
@@ -59,17 +75,31 @@ class UsersController extends Controller
         
         if($request->post_img){
 
-            if($request->post_img->extension() == 'gif' || $request->post_img->extension() == 'jpeg' || $request->post_img->extension() == 'jpg' || $request->post_img->extension() == 'png'){
-            $request->file('post_img')->storeAs('public/post_img', $user->id.'.'.$request->post_img->extension());
+            if($request->post_img->extension() == 'gif' 
+            || $request->post_img->extension() == 'jpeg' 
+            || $request->post_img->extension() == 'jpg' 
+            || $request->post_img->extension() == 'png')
+            {
+
+            $request->file('post_img')
+            ->storeAs('public/post_img', $user->id.'.'.$request->post_img->extension());
+
             }
         }
         return redirect('/');
     }
     public function useredit(User $user){
         $result = $user->find($user);
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
         return  view('user_edit',[
             'id' => $user['id'],
             'result'=>$user,
+            'img'=>$img,
         ]);
     }
 

@@ -20,9 +20,87 @@ class GradeController extends Controller
         $grade = new Grade;
         $all =Auth::user()->grade()->get();
         $maps = Map::all();
+        $img =Auth::user()->grade()->first();
+       
+        
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+               //成績出す計算式
+       $sum1 = 0;
+       $sum2 = 0;
+       $sum3 = 0;
+       $sum4 = 0;
+
+       foreach($all as $avg){
+        $sum1 +=$avg['top'];//topの総回数
+        $sum2 +=$avg['second'];
+        $sum3 +=$avg['third'];
+       }
+       
+       $sum4 = $sum1+$sum2+$sum3;//総合回数
+       $sum5 = $sum2*2;
+       $sum6 = $sum3*3;
+       $sum7 = $sum1 + $sum5 + $sum6;
+
+       //平着
+       if ($sum4) {
+        $avg =sprintf('%.3f', $sum7/$sum4);
+        } else {
+        $avg = 0;
+        }
+
+        //TOP率
+        if ($sum1) {
+            $sum1 =$sum1;
+                if($sum4){
+                    $topper = sprintf('%.3f',$sum1/$sum4*100);
+                }else{
+                    $sum4= 0;
+                }
+            } else {
+            $sum1 = 0;
+            $topper = 0;
+        }
+        //２着率
+        if ($sum2) {
+            $sum2 =$sum2;
+            if($sum4){
+                $secper = sprintf('%.3f',$sum2/$sum4*100);
+            }else{
+                $sum4= 0;
+            }
+            } else {
+            $sum2 = 0;
+            $secper = 0;
+        }
+        //3着率
+        if ($sum3) {
+            $sum3 =$sum3;
+            if($sum4){
+                $thiper = sprintf('%.3f',$sum3/$sum4*100);
+            }else{
+                $sum4= 0;
+            }
+            } else {
+            $sum3 = 0;
+            $thiper = 0;
+        }
+        
         return view('grade',[
             'grades'=>$all,
             'maps'=>$maps,
+            'img'=>$img,
+            'avg'=>$avg,
+            'ityaku'=>$sum1,
+            'nityaku'=>$sum2,
+            'santyaku'=>$sum3,
+            'sokai'=>$sum4,
+            'top'=>$topper,
+            'sec'=>$secper,
+            'thi'=>$thiper,
         ]);   
 
     }
@@ -35,8 +113,16 @@ class GradeController extends Controller
     public function create()
     {
         $maps = Map::all();
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+
         return view('grade_new',[
             'maps'=>$maps,
+            'img'=>$img,
         ]);
     }
 
@@ -85,11 +171,19 @@ class GradeController extends Controller
        
         $result = $grade->where('user_id',Auth::id())->find($grade);
         $maps = Map::all();
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
+
 
         return  view('grade_edit',[
             'id' => $grade['id'],
             'result'=>$grade,
             'maps'=>$maps,
+            'img'=>$img,
         ]);
 
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Map;
+use App\Grade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\MapData;
 
 class MapController extends Controller
@@ -16,8 +18,15 @@ class MapController extends Controller
     public function index()
     {
         $maps = Map::all();
+        $img =Auth::user()->grade()->first();
+        if(!isset($img)){
+            $img =0;
+        }else{
+            $img = $img['user_id'];
+        }
         return view('admin_map_new',[
             'maps'=>$maps,
+            'img'=>$img,
         ]);
     }
     /**
