@@ -26,7 +26,7 @@
             <a class="may-navbar-item" href="{{ route('register') }}">会員登録</a>
         @endif
             
-                <a href="{{ route('users.useredit',Auth::user()->id) }}">
+                <a href="{{ route('users.useredit',Auth::user()->id) }}">ユーザー情報変更
                 @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))
                     <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;border-radius:50%;">
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.jpeg'))

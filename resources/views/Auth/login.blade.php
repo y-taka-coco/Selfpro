@@ -25,6 +25,8 @@
         </nav>
         <div class="text-center">
           <a href="{{ route('password.request') }}">パスワードの変更はこちらから</a>
+          /
+          <a class="may-navbar-item" href="{{ route('register') }}">会員登録</a>
         </div>
       </div>
     </div>

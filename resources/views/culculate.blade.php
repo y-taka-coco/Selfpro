@@ -26,7 +26,7 @@
         @endif
             
                 <a href="{{ route('users.useredit',Auth::user()->id) }}">
-                @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))
+                @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))ユーザー情報変更
                     <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;border-radius:50%;">
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.jpeg'))
                     <img src="/storage/post_img/{{ $img }}.jpeg" style="height:100px;width:100px;border-radius:50%;">
