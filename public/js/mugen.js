@@ -2,10 +2,21 @@ $(function(){
 
         $(".pagination").hide();
         var page = 2;
-        $(".more").on("click",function(){
-                mugenajax();
-        });
+        // $(".more").on("click",function(){
+        //         mugenajax();
+        // });
+        // $(".more").hide();
+        //var suryo =$(window).scrollTop();
+        // console.log(suryo);
 
+        var kizyun = 500;
+        $(window).on("scroll",function () {
+                if($(window).scrollTop() >= kizyun){
+                        mugenajax();
+                        kizyun = kizyun + 500;
+                }
+        });
+                
         //ajaxでデータを取得
         function mugenajax(){
                 
@@ -32,11 +43,11 @@ $(function(){
                                         </tr>`
                                 );
                         }
-                        var all = JSON.parse(data['maps']['total']);
-                        var now = JSON.parse(data['maps']['to']);
-                        if (all == now){
-                                $(".more").hide();
-                        }
+                        // var all = JSON.parse(data['maps']['total']);
+                        // var now = JSON.parse(data['maps']['to']);
+                        // if (all == now){
+                        //         $(".more").hide();
+                        // }
 
                     })
                     // Ajaxリクエストが失敗した場合

@@ -41,25 +41,48 @@
         <!-- ヘッダーここまで -->
 
 <main class="py-4">
-<div class="row justify-content-around">
-<div class="col-md-4">
-                <div class="card">
-                    
-                       
+    <div class="row justify-content-around" style="flex-direction: column;">
+            <div class="col-md-4" style="margin: auto;">
+                <div class="card border-secondary">
+                    <div class="text-secondary">
+                        <div class="card border-secondary" >
                             <table class='table table-hover'>
                                 <thead class='thead-light'>
                                     <tr>
+                                        <th></th>
                                         <th class='text-center'>今月の収支</th>
+                                        <th>
+                                            <select name="month" >
+                                                <option value="">4</option><!-- 該当月の数字に変更する -->
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>　月
+                                        </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class='text-center'>
                                     <tr>
+                                        <th></th>
                                         <th class='text-center text-primary'>+{{$katisum}}</th>
+                                        <th></th>
                                     </tr>
                                     <tr>
+                                        <th></th>
                                         <th class='text-center text-danger'>-{{$makesum}}</th>
+                                        <th></th>
                                     </tr>
                                     <tr>
+                                        <th></th>
                                         @if($katisum > $makesum)
                                             <th class='text-center'>+{{$keka}}</th>
                                         @elseif($katisum < $makesum)
@@ -67,11 +90,12 @@
                                         @elseif($katisum == $makesum)
                                             <th class='text-center'>±0</th>
                                         @endif
+                                        <th></th>
                                     </tr>
                                 </tbody>
                             </table>
-                        
-                   
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>

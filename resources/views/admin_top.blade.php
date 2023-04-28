@@ -112,9 +112,9 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class='row justify-content-around mt-3'>
+                                <!-- <div class='row justify-content-around mt-3'>
                         <button type='button' class='btn btn-secondary more'>more</button>
-                    </div>
+                    </div> -->
 
                         </div>
                     
