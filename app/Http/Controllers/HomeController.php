@@ -16,11 +16,12 @@ class HomeController extends Controller
         $grade = new Grade;
         $all =Auth::user()->grade()->get();
         $maps = Map::all();
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
+        //dd($img);
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
 
@@ -36,15 +37,12 @@ class HomeController extends Controller
          $syusi2 +=$syu['spending'];//合計
         }
         if($syusi1 > $syusi2){//in>sp
-            $syusi3 = $syusi1-$syusi2;
-            $syusi4 =0;
-        }elseif($syusi1 < $syusi2){//in<sp
-            $syusi3 =0;
-            $syusi4 = $syusi2-$syusi1;
-        }elseif($syusi1 == $syusi2){//in=sp
-            $syusi3 =0;
-            $syusi4 =0;
-        }
+                    $syusi3 = $syusi1-$syusi2;
+                }elseif($syusi1 < $syusi2){//in<sp
+                    $syusi3 = $syusi2-$syusi1;
+                }elseif($syusi1 == $syusi2){//in=sp
+                    $syusi3 =0;
+                }
 
         
         
@@ -116,6 +114,12 @@ class HomeController extends Controller
     if($hiduke && $omise){
         $exa = Grade::where('date','like','%'.$hiduke.'%')->where('map_id','like','%'.$omise.'%')->get();
         $all=$exa;
+    }elseif($hiduke){
+        $exa = Grade::where('date','like',$hiduke)->get();
+        $all=$exa;
+    }elseif($omise){
+        $exa = Grade::where('map_id','like',$omise)->get();
+        $all=$exa;
     }
 
     
@@ -131,8 +135,7 @@ class HomeController extends Controller
             'sokai'=>$sum4,
             'katisum'=>$syusi1,
             'makesum'=>$syusi2,
-            'kati'=>$syusi3,
-            'make'=>$syusi4,
+            'keka'=>$syusi3,
             'top'=>$topper,
             'sec'=>$secper,
             'thi'=>$thiper,

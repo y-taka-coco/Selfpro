@@ -71,9 +71,7 @@
                                 </table>
                         </div>
                     </div>
-                    <div class='row justify-content-around mt-3'>
-                        <a href="{{ route('maps.create') }}" class="badge badge-pill badge-success"><h3>店舗登録</h3></a>   
-                    </div>
+                    
                 </div>
 
                 <!-- 無限スクロール -->
@@ -82,6 +80,9 @@
                         <div class="card-header">
                         <h4 class='text-center bg-success' style="font-size: 3.35rem;">店舗一覧</h1>
                         </div>
+                        <div class='row justify-content-around mt-3'>
+                        <a href="{{ route('maps.create') }}" class="badge badge-pill badge-success"><h3>店舗登録</h3></a>   
+                    </div>
                         <div class="card-body bg-light">
                                 <div id="data-container">
                                     <table class="table table-striped">

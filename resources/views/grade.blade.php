@@ -51,7 +51,23 @@
                                         <tr>
                                             <th></th>
                                             <th>今月の成績表示</th>
-                                            <th></th>
+                                            <th>
+                                            <select name="month">
+                                                <option value="">-</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>　月
+                                            </th>
                                             
                                         </tr>
                                     </thead>
@@ -100,283 +116,285 @@
                         </tr>
                         <tr>
                             <td>
+                            01
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-01")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">01</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                01
+                                
                             </td>
-                            <td>
+                            <td>02
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-02")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">02</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                02
+                                
                             </td>
-                            <td>
+                            <td>03
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-03")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">03</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                03
+                                
                             </td>
-                            <td>
+                            <td>04
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-04")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">04</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                04
+                                
                             </td>
-                            <td>
+                            <td>05
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-05")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">05</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                05
+                                
                             </td>
-                            <td>
+                            <td>06
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-06")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">06</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                06
+                                
                             </td>
-                            <td>
+                            <td>07
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-07")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">07</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                07
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>08
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-08")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">08</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                08
+                                
                             </td>
-                            <td>
+                            <td>09
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-09")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">09</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                09
+                                
                             </td>
-                            <td>
+                            <td>10
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-10")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">10</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                10
+                                
                             </td>
-                            <td>
+                            <td>11
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-11")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">11</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                11
+                                
                             </td>
-                            <td>
+                            <td>12
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-12")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">12</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                12
+                                
                             </td>
-                            <td>
+                            <td>13
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-13")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">13</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                13
+                                
                             </td>
-                            <td>
+                            <td>14
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-14")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">14</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                14
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>15
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-15")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">15</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                15
+                                
                             </td>
-                            <td>
+                            <td>16
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-16")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">16</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                16
+                                
                             </td>
-                            <td>
+                            <td>17
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-17")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">17</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                17
+                                
                             </td>
-                            <td>@foreach($grades as $grade)
+                            <td>18
+                                @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-18")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">18</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                18
+                                
                             </td>
-                            <td>
+                            <td>19
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-19")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">19</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                19
+                                
                             </td>
-                            <td>
+                            <td>20
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-20")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">20</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                20
+                                
                             </td>
-                            <td>
+                            <td>21
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-21")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">21</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                21
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>22
                             @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-22")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">22</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                22
+                                
                             </td>
-                            <td>
+                            <td>23
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-23")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">23</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                23
+                                
                             </td>
-                            <td>
+                            <td>24
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-24")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">24</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                24
+                                
                             </td>
-                            <td>
+                            <td>25
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-25")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">25</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                25
+                                
                             </td>
-                            <td>
+                            <td>26
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-26")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">26</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                26
+                                
                             </td>
-                            <td>
+                            <td>27
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-27")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">27</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                27
+                                
                             </td>
-                            <td>
+                            <td>28
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-28")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">28</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                28
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>29
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-29")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">29</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                29
+                                
                             </td>
-                            <td>
+                            <td>30
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-30")
-                                    <a href="{{ route('grades.edit',$grade['id']) }}">30</a>
+                                    <a href="{{ route('grades.edit',$grade['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                30
+                                
                             </td>
-                            <td>
+                            <td hidden>
                                 @foreach($grades as $grade)
                                     @if($grade['date'] === "2023-04-31")
                                     <a href="{{ route('grades.edit',$grade['id']) }}">31</a>

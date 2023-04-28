@@ -54,6 +54,7 @@
                                 <label for='amount'>メールアドレス</label>
                                     <input type='text' class='form-control' name='email' value="{{ $result->email }}"/>
                             </div>
+                            
                                     <div class="text-right" style="margin-left: 60px;">
                                         <button type='submit' class='btn btn-light mt-3' style="border-radius: 5.25rem;">登録</button>
                                     </div>

@@ -20,11 +20,11 @@ class UsersController extends Controller
         $sort = $request->sort;
         $maps = Map::paginate(15);
 
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
         return view ('admin_top',[
@@ -39,11 +39,11 @@ class UsersController extends Controller
     public function edit(Int $id){
         $user = new User;
         $result = $user->find($id);
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
         return  view('admin_user_edit',[
@@ -90,11 +90,11 @@ class UsersController extends Controller
     }
     public function useredit(User $user){
         $result = $user->find($user);
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
         return  view('user_edit',[
             'id' => $user['id'],

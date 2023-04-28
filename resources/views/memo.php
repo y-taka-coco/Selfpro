@@ -29,7 +29,6 @@
                                                 @if($map['id'] == $culculate['map_id'])
                                                     <th>{{ $map['shopname'] }}</th>
                                                 @else
-                                                    
                                                 @endif
                                         @endforeach
                                     <th>
@@ -69,10 +68,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($grades as $grade)
+                                @foreach($culculates as $culculate)
                                 <tr>
                                     <th>
-                                        <a href="{{ route('grades.edit',$grade['id']) }}">{{ $grade['date'] }}</a>
+                                        <a href="{{ route('grades.edit',$grade['id']) }}">{{ $culculate['date'] }}</a>
                                     </th>
                                     <th>{{ $grade['top'] }}回</th>
                                     <th>{{ $grade['second'] }}回</th>
@@ -101,6 +100,8 @@
                 </div>
             </div>
         </div>
+
+
 
 
 

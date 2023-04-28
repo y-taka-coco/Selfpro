@@ -20,13 +20,11 @@ class GradeController extends Controller
         $grade = new Grade;
         $all =Auth::user()->grade()->get();
         $maps = Map::all();
-        $img =Auth::user()->grade()->first();
-       
-        
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
                //成績出す計算式
        $sum1 = 0;
@@ -113,11 +111,11 @@ class GradeController extends Controller
     public function create()
     {
         $maps = Map::all();
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
         return view('grade_new',[
@@ -171,11 +169,11 @@ class GradeController extends Controller
        
         $result = $grade->where('user_id',Auth::id())->find($grade);
         $maps = Map::all();
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
 

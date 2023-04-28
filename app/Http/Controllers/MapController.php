@@ -18,11 +18,11 @@ class MapController extends Controller
     public function index()
     {
         $maps = Map::all();
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
         return view('admin_map_new',[
             'maps'=>$maps,

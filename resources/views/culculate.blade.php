@@ -54,17 +54,17 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th class='text-center text-primary'>+{{$kati}}</th>
+                                        <th class='text-center text-primary'>+{{$katisum}}</th>
                                     </tr>
                                     <tr>
-                                        <th class='text-center text-danger'>-{{$make}}</th>
+                                        <th class='text-center text-danger'>-{{$makesum}}</th>
                                     </tr>
                                     <tr>
-                                        @if($kati > $make)
-                                            <th class='text-center'>+{{$kati}}</th>
-                                        @elseif($kati < $make)
-                                            <th class='text-center'>-{{$make}}</th>
-                                        @elseif($kati == $make)
+                                        @if($katisum > $makesum)
+                                            <th class='text-center'>+{{$keka}}</th>
+                                        @elseif($katisum < $makesum)
+                                            <th class='text-center'>-{{$keka}}</th>
+                                        @elseif($katisum == $makesum)
                                             <th class='text-center'>±0</th>
                                         @endif
                                     </tr>
@@ -81,7 +81,7 @@
         <div class="row justify-content-around">
             <div class="card border-info mb-3">
                 <div class="card-body text-info">
-                    <table border="1" style="max-width: 100%;table-layout: fixed;width: 700px;" >
+                <table border="1" style="max-width: 100%;table-layout: fixed;width: 700px;" >
                         <tr class='bg-info'><!-- 曜日（予定） -->
                             <th></th>
                             <th></th>
@@ -93,283 +93,285 @@
                         </tr>
                         <tr>
                             <td>
+                            01
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-01")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">01</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                01
+                                
                             </td>
-                            <td>
+                            <td>02
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-02")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">02</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                02
+                                
                             </td>
-                            <td>
+                            <td>03
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-03")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">03</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                03
+                                
                             </td>
-                            <td>
+                            <td>04
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-04")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">04</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                04
+                                
                             </td>
-                            <td>
+                            <td>05
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-05")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">05</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                05
+                                
                             </td>
-                            <td>
+                            <td>06
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-06")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">06</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                06
+                                
                             </td>
-                            <td>
+                            <td>07
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-07")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">07</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                07
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>08
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-08")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">08</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                08
+                                
                             </td>
-                            <td>
+                            <td>09
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-09")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">09</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                09
+                                
                             </td>
-                            <td>
+                            <td>10
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-10")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">10</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                10
+                                
                             </td>
-                            <td>
+                            <td>11
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-11")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">11</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                11
+                                
                             </td>
-                            <td>
+                            <td>12
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-12")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">12</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                12
+                                
                             </td>
-                            <td>
+                            <td>13
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-13")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">13</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                13
+                                
                             </td>
-                            <td>
+                            <td>14
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-14")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">14</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                14
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>15
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-15")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">15</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                15
+                                
                             </td>
-                            <td>
+                            <td>16
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-16")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">16</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                16
+                                
                             </td>
-                            <td>
+                            <td>17
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-17")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">17</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                17
+                                
                             </td>
-                            <td>@foreach($culculates as $culculate)
+                            <td>18
+                                @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-18")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">18</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                18
+                                
                             </td>
-                            <td>
+                            <td>19
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-19")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">19</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                19
+                                
                             </td>
-                            <td>
+                            <td>20
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-20")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">20</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                20
+                                
                             </td>
-                            <td>
+                            <td>21
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-21")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">21</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                21
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>22
                             @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-22")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">22</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                22
+                                
                             </td>
-                            <td>
+                            <td>23
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-23")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">23</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                23
+                                
                             </td>
-                            <td>
+                            <td>24
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-24")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">24</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                24
+                                
                             </td>
-                            <td>
+                            <td>25
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-25")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">25</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                25
+                                
                             </td>
-                            <td>
+                            <td>26
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-26")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">26</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                26
+                                
                             </td>
-                            <td>
+                            <td>27
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-27")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">27</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                27
+                                
                             </td>
-                            <td>
+                            <td>28
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-28")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">28</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                28
+                                
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>29
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-29")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">29</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                29
+                                
                             </td>
-                            <td>
+                            <td>30
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-30")
-                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">30</a>
+                                    <a href="{{ route('culculate.edit',$culculate['id']) }}">詳細</a>
                                     @else
                                     @endif
                                 @endforeach
-                                30
+                                
                             </td>
-                            <td>
+                            <td hidden>
                                 @foreach($culculates as $culculate)
                                     @if($culculate['date'] === "2023-04-31")
                                     <a href="{{ route('culculate.edit',$culculate['id']) }}">31</a>
@@ -383,10 +385,13 @@
                             <td></td>
                             <td></td>
                         </tr>
-                    </table>
+        </table>
+
                 </div>
+
             </div>
         </div>
+
 
 
 </main>

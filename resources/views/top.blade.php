@@ -27,7 +27,8 @@
             
             <a class="may-navbar-item" href="{{ route('register') }}">会員登録</a>
         @endif
-            
+        
+                
                 <a href="{{ route('users.useredit',Auth::user()->id) }}">ユーザー情報変更
                 @if(file_exists(public_path().'/storage/post_img/'. $img .'.jpg'))
                     <img src="/storage/post_img/{{ $img }}.jpg" style="height:100px;width:100px;border-radius:50%;">
@@ -98,17 +99,17 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th class='text-center text-primary'>+{{$kati}}</th>
+                                        <th class='text-center text-primary'>+{{$katisum}}</th>
                                     </tr>
                                     <tr>
-                                        <th class='text-center text-danger'>-{{$make}}</th>
+                                        <th class='text-center text-danger'>-{{$makesum}}</th>
                                     </tr>
                                     <tr>
-                                        @if($kati > $make)
-                                            <th class='text-center'>+{{$kati}}</th>
-                                        @elseif($kati < $make)
-                                            <th class='text-center'>-{{$make}}</th>
-                                        @elseif($kati == $make)
+                                        @if($katisum > $makesum)
+                                            <th class='text-center'>+{{$keka}}</th>
+                                        @elseif($katisum < $makesum)
+                                            <th class='text-center'>-{{$keka}}</th>
+                                        @elseif($katisum == $makesum)
                                             <th class='text-center'>±0</th>
                                         @endif
                                     </tr>
@@ -149,7 +150,7 @@
                                         <select name='map_id' class='form-control'>
                                             <option value="" hidden></option> 
                                                 @foreach($maps as $map)
-                                                    <option value="{{ $map['id']}}" selected>{{ $map['shopname'] }}</option>
+                                                    <option value="{{ $map['id']}}" >{{ $map['shopname'] }}</option>
                                                 @endforeach  
                                             </select>
                                         <button type="submit" class="kensakubtn btn btn-outline-success">検索</button>
@@ -162,8 +163,9 @@
                                             <th>1着</th>
                                             <th>2着</th>
                                             <th>3着</th>
-                                            <th>勝ち額</th>
-                                            <th>負け額</th>
+                                            <th>勝ち</th>
+                                            <th>負け</th>
+                                            <th>店舗名</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -175,6 +177,13 @@
                                             <th>{{ $grade['third'] }}回</th>
                                             <th>{{ $grade['income'] }}</th>
                                             <th>{{ $grade['spending'] }}</th>
+                                            @foreach($maps as $map)
+                                                @if($map['id'] == $grade['map_id'])
+                                                    <th>{{ $map['shopname'] }}</th>
+                                                @else
+                                                    
+                                                @endif
+                                            @endforeach
                                         
                                         </tr>
                                      @endforeach

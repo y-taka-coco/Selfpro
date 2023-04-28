@@ -13,11 +13,11 @@ class CulculateController extends Controller
     public function create() {
         $maps = Map::all();
         $grade = Grade::all();
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
         return view('culculate_new',[
@@ -44,11 +44,11 @@ class CulculateController extends Controller
         $grade = new Grade;
         $all =Auth::user()->grade()->get();
         $maps = Map::all();
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
                 //総合収支
@@ -60,24 +60,20 @@ class CulculateController extends Controller
                 }
                 if($syusi1 > $syusi2){//in>sp
                     $syusi3 = $syusi1-$syusi2;
-                    $syusi4 =0;
                 }elseif($syusi1 < $syusi2){//in<sp
-                    $syusi3 =0;
-                    $syusi4 = $syusi2-$syusi1;
+                    $syusi3 = $syusi2-$syusi1;
                 }elseif($syusi1 == $syusi2){//in=sp
                     $syusi3 =0;
-                    $syusi4 =0;
                 }
         
-
         return view('culculate',[
             'culculates'=>$all,
             'maps'=>$maps,
             'img'=>$img,
             'katisum'=>$syusi1,
             'makesum'=>$syusi2,
-            'kati'=>$syusi3,
-            'make'=>$syusi4,
+            'keka'=>$syusi3,
+            
 
         ]); 
     }
@@ -92,11 +88,11 @@ class CulculateController extends Controller
         $grade = new Grade;
         $result = $grade->find($id);
         $maps = Map::all();
-        $img =Auth::user()->grade()->first();
+        $img =Auth::user();
         if(!isset($img)){
             $img =0;
         }else{
-            $img = $img['user_id'];
+            $img = $img['id'];
         }
 
         
