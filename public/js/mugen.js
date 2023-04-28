@@ -43,11 +43,6 @@ $(function(){
                                         </tr>`
                                 );
                         }
-                        // var all = JSON.parse(data['maps']['total']);
-                        // var now = JSON.parse(data['maps']['to']);
-                        // if (all == now){
-                        //         $(".more").hide();
-                        // }
 
                     })
                     // Ajaxリクエストが失敗した場合
@@ -57,4 +52,19 @@ $(function(){
                         loading_flg = false;
                 }
 });
+
+
+        //備忘録
+        //ボタンクリックで表示
+        // $(".more").on("click",function(){
+        //         mugenajax();
+        // });
+        // $(".more").hide();
+        //var suryo =$(window).scrollTop();
+        // console.log(suryo);
+        // var all = JSON.parse(data['maps']['total']);
+        // var now = JSON.parse(data['maps']['to']);
+        // if (all == now){
+        //         $(".more").hide();
+        // }
 
