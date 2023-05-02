@@ -72,7 +72,7 @@ class UsersController extends Controller
 
     public function userupdate(UserData $request, User $user){
         $user->name = $request->name;
-        
+        $user->email =$request->email;
         if($request->post_img){
 
             if($request->post_img->extension() == 'gif' 
@@ -86,6 +86,7 @@ class UsersController extends Controller
 
             }
         }
+        $user->save(); 
         return redirect('/');
     }
     public function useredit(User $user){

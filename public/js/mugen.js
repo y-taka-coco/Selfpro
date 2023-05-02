@@ -2,13 +2,6 @@ $(function(){
 
         $(".pagination").hide();
         var page = 2;
-        // $(".more").on("click",function(){
-        //         mugenajax();
-        // });
-        // $(".more").hide();
-        //var suryo =$(window).scrollTop();
-        // console.log(suryo);
-
         var kizyun = 500;
         $(window).on("scroll",function () {
                 if($(window).scrollTop() >= kizyun){
@@ -16,7 +9,23 @@ $(function(){
                         kizyun = kizyun + 500;
                 }
         });
-                
+
+        //月選択で値を渡す
+        var month = $('#sentaku').val();
+        console.log(month);
+        $('#pull').on("change",function(){
+                $('#select').trigger('submit');
+                var month =$(this).val();
+        });
+        //日付の非表示
+        if(month == '02'){
+                $('#nzyukyu').hide();
+                $('#sanzyu').hide();
+                $('#sanzyuuiti').hide();
+        }else if (month == '04'||month =='06'||month == '09'||month == '11'){
+                $('#sanzyuuiti').hide();
+        }
+
         //ajaxでデータを取得
         function mugenajax(){
                 

@@ -7,6 +7,7 @@ use App\Grade;
 use App\Map;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateData;
+use Carbon\Carbon;
 
 class CulculateController extends Controller
 {
@@ -14,6 +15,7 @@ class CulculateController extends Controller
         $maps = Map::all();
         $grade = Grade::all();
         $img =Auth::user();
+        
         if(!isset($img)){
             $img =0;
         }else{
@@ -34,15 +36,28 @@ class CulculateController extends Controller
         $grade->income =$request->income;
         $grade->spending =$request->spending;
         $grade->map_id =$request->map_id;
+
+
         Auth::user()->grade()->save($grade);
         //$grade->save();
 
         return redirect('/culculate');
     }
 
-    public function index() {
+    public function index(Request $request) {
         $grade = new Grade;
-        $all =Auth::user()->grade()->get();
+        $now = Carbon::now();
+        $chmonth = $request->chmonth;
+        if(!isset($chmonth)){
+            $month = $now->format('m');
+        }else{
+            $month = $chmonth;
+        }
+        $all =Auth::user()->grade()->whereMonth('date',$month)->get();
+
+
+
+
         $maps = Map::all();
         $img =Auth::user();
         if(!isset($img)){
@@ -66,6 +81,7 @@ class CulculateController extends Controller
                     $syusi3 =0;
                 }
         
+        
         return view('culculate',[
             'culculates'=>$all,
             'maps'=>$maps,
@@ -73,6 +89,7 @@ class CulculateController extends Controller
             'katisum'=>$syusi1,
             'makesum'=>$syusi2,
             'keka'=>$syusi3,
+            'month'=>$month,
             
 
         ]); 

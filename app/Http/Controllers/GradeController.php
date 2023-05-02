@@ -7,6 +7,7 @@ use App\Map;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateData;
+use Carbon\Carbon;
 
 class GradeController extends Controller
 {
@@ -15,10 +16,17 @@ class GradeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $grade = new Grade;
-        $all =Auth::user()->grade()->get();
+        $now = Carbon::now();
+        $chmonth = $request->chmonth;
+        if(!isset($chmonth)){
+            $month = $now->format('m');
+        }else{
+            $month = $chmonth;
+        }
+        $all =Auth::user()->grade()->whereMonth('date',$month)->get();
         $maps = Map::all();
         $img =Auth::user();
         if(!isset($img)){
@@ -99,6 +107,7 @@ class GradeController extends Controller
             'top'=>$topper,
             'sec'=>$secper,
             'thi'=>$thiper,
+            'month'=>$month,
         ]);   
 
     }
