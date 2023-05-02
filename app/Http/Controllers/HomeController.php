@@ -112,13 +112,13 @@ class HomeController extends Controller
     $hiduke = $request->input('date');
     $omise = $request->input('map_id');
     if($hiduke && $omise){
-        $exa = Grade::where('date','like','%'.$hiduke.'%')->where('map_id','like','%'.$omise.'%')->get();
+        $exa = Auth::user()->grade()->where('date','like','%'.$hiduke.'%')->where('map_id','like','%'.$omise.'%')->get();
         $all=$exa;
     }elseif($hiduke){
-        $exa = Grade::where('date','like',$hiduke)->get();
+        $exa = Auth::user()->grade()->where('date','like',$hiduke)->get();
         $all=$exa;
     }elseif($omise){
-        $exa = Grade::where('map_id','like',$omise)->get();
+        $exa = Auth::user()->grade()->where('map_id','like',$omise)->get();
         $all=$exa;
     }
 
