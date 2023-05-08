@@ -35,6 +35,9 @@
                     <img src="/storage/post_img/{{ $img }}.png" style="height:100px;width:100px;border-radius:50%;">
                 @elseif(file_exists(public_path().'/storage/post_img/'. $img .'.gif'))
                     <img src="/storage/post_img/{{ $img }}.gif" style="height:100px;width:100px;border-radius:50%;">
+                @elseif(file_exists(public_path().'/storage/post_img/'. 0 .'.png'))
+                <img src="/storage/post_img/0.png" style="height:100px;width:100px;border-radius:50%;">
+
                 @endif
                 </a>
            
